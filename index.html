@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0F2D4A">
+<title>南知多ガチ釣り｜しんやさんバースデー 参加アンケート</title>
+<meta name="description" content="しんやさんの誕生日を、南知多の海の上で祝う1日。参加アンケートはこちら。">
+<meta property="og:title" content="南知多ガチ釣り｜しんやさんバースデー">
+<meta property="og:description" content="貸切船で本気の海釣り。釣った魚で誕生日パーティー。参加アンケートに答えてください。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+/* =====================================================================
+   設定（ここだけ書き換えればOK）
+   ===================================================================== */
+var CONFIG = {
+  // GAS ウェブアプリのURL（末尾 /exec）。空のままだと「お試しモード」で、送信してもどこにも保存されない
+  API_URL: 'https://script.google.com/macros/s/AKfycbzNf_OD_v08PmslBPHwqb6T7s48VGJgKNybqmm7o_Jv-YTwDm8DSm5hgbSZOOXJTYWR/exec',
+  // 開催日。空なら「調整中」と表示
+  EVENT_DATE: '10月22日（木）',
+  // 回答期限。空なら表示しない
+  DEADLINE: '10月12日（月）中',
+  // 費用の表示
+  COST: '1人 20,000円程度',
+  // 幹事・連絡先。空なら表示しない
+  ORGANIZER: '',
+  CONTACT: ''
+};
+</script>
+<style>
+:root{
+  --red:#C8102E;
+  --red-deep:#9E0C24;
+  --sea:#0F2D4A;
+  --sea-2:#163C61;
+  --foam:#FFFFFF;
+  --blush:#FBEFF1;
+  --ink:#1C1C1E;
+  --muted:#5E5A5C;
+  --line:#E7E0E2;
+  --sea-text:#D6E2EE;
+  --mincho:'Shippori Mincho B1', 'Hiragino Mincho ProN', serif;
+  --gothic:'Zen Kaku Gothic New', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--foam);color:var(--ink);font-family:var(--gothic);font-size:16px;line-height:1.75;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+img,svg{display:block}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+
+/* ---------- Hero ---------- */
+.topbar{height:6px;background:var(--red)}
+.hero{position:relative;padding:40px 0 0;overflow:hidden}
+.hero-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px;color:var(--muted);font-weight:500}
+.hero-meta b{color:var(--red);font-weight:900;letter-spacing:.08em}
+.title{font-family:var(--mincho);font-weight:800;font-size:clamp(52px,15vw,92px);line-height:1.05;letter-spacing:-.01em;margin:28px 0 0;color:var(--ink)}
+.title span{display:block}
+.badge{display:inline-block;margin-top:22px;background:var(--red);color:#fff;font-weight:900;font-size:clamp(17px,4.6vw,21px);padding:8px 16px 9px;letter-spacing:.06em}
+.lead{word-break:auto-phrase;margin:18px 0 0;font-size:16px;color:var(--ink);max-width:34em}
+.lead strong{font-weight:700}
+
+/* waterline + bobber */
+.water{position:relative;margin-top:20px;height:130px}
+.water svg.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:110px}
+.water svg.front{z-index:2}
+.bobber{position:absolute;z-index:1;left:68%;bottom:4px;width:50px;transform-origin:50% 80%;animation:bob 3.2s ease-in-out infinite}
+.line{position:absolute;z-index:1;left:calc(68% + 25px);bottom:100px;width:1px;height:44px;background:linear-gradient(to top,rgba(28,28,30,.5),rgba(28,28,30,0))}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(7px) rotate(3deg)}}
+.bite .bobber{animation:bite 1.4s cubic-bezier(.5,0,.3,1) forwards}
+.bite .line{animation:taut 1.4s ease forwards}
+@keyframes taut{60%,100%{transform:translateY(34px)}}
+@keyframes bite{0%{transform:translateY(0)}15%{transform:translateY(-6px)}30%{transform:translateY(16px)}45%{transform:translateY(4px)}60%{transform:translateY(40px)}100%{transform:translateY(40px)}}
+@media (prefers-reduced-motion:reduce){.bobber,.bite .bobber,.bite .line{animation:none}}
+
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:28px 0 0;padding:17px 20px;background:var(--red);color:#fff;border:0;border-radius:999px;font:inherit;font-weight:900;font-size:17px;letter-spacing:.06em;text-decoration:none;cursor:pointer;box-shadow:0 10px 24px -12px rgba(200,16,46,.7);transition:transform .15s ease,background .15s ease}
+.cta:hover{background:var(--red-deep)}
+.cta:active{transform:translateY(1px)}
+.cta:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #F3B33D;outline-offset:3px}
+
+/* ---------- Sea section ---------- */
+.sea{background:var(--sea);color:#fff;padding:56px 0 64px;position:relative}
+.sea h2{font-family:var(--mincho);font-weight:800;font-size:clamp(30px,8vw,40px);line-height:1.3;margin:0 0 6px}
+.sea .sub{color:var(--sea-text);margin:0 0 34px;font-size:15px}
+.moments{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.moment{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:24px 0;border-top:1px solid rgba(255,255,255,.14)}
+.moment:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.moment .ic{width:56px;height:56px;border-radius:50%;background:var(--sea-2);display:grid;place-items:center}
+.moment .ic svg{width:30px;height:30px}
+.moment h3{margin:2px 0 6px;font-size:18px;word-break:keep-all;overflow-wrap:anywhere;text-wrap:balance;font-weight:900;line-height:1.45;letter-spacing:.03em}
+.moment p{margin:0;color:var(--sea-text);font-size:15px}
+.moment .tag{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:#fff;background:var(--red);padding:2px 10px;border-radius:999px}
+
+/* ---------- Info ---------- */
+.info{padding:56px 0 8px}
+.info h2,.form-head h2{font-family:var(--mincho);font-weight:800;font-size:clamp(28px,7.4vw,36px);line-height:1.3;margin:0 0 22px}
+.facts{margin:0;display:grid;grid-template-columns:5.5em 1fr;border-top:2px solid var(--ink)}
+.facts dt,.facts dd{margin:0;padding:15px 0;border-bottom:1px solid var(--line)}
+.facts dt{font-weight:700;color:var(--muted);font-size:14px;padding-top:17px}
+.facts dd{font-weight:500}
+.facts dd small{display:block;color:var(--muted);font-size:13px;font-weight:400;line-height:1.6;margin-top:2px}
+.facts .money{font-weight:900;color:var(--red);font-size:20px;letter-spacing:.02em}
+.free{margin:28px 0 0;padding:18px 20px;background:var(--blush);border-left:4px solid var(--red);font-size:15px}
+.free b{display:block;font-size:16px;margin-bottom:2px}
+
+/* ---------- Form ---------- */
+.form-zone{background:var(--blush);margin-top:56px;padding:56px 0 72px}
+.form-head p{margin:-10px 0 0;color:var(--muted);font-size:15px}
+.deadline{display:inline-block;margin-top:12px;font-weight:700;color:var(--red);font-size:14px}
+form{margin-top:30px}
+.q{background:#fff;border-radius:18px;padding:22px 20px 24px;margin:0 0 14px;border:1px solid var(--line)}
+.q > label,.q legend{display:block;font-weight:900;font-size:17px;line-height:1.5;margin:0 0 4px;padding:0}
+fieldset.q{min-width:0}
+.q legend{float:left;width:100%}
+.q legend ~ *{clear:both}
+.req,.opt{display:inline-block;vertical-align:2px;margin-left:8px;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px}
+.req{background:var(--red);color:#fff}
+.opt{background:#F1ECED;color:var(--muted)}
+.hint{display:block;color:var(--muted);font-size:13px;margin:0 0 12px;font-weight:400}
+input[type=text],textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;transition:border-color .15s}
+textarea{min-height:110px;resize:vertical;line-height:1.7}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.14)}
+.choices{display:grid;gap:10px;margin-top:12px}
+.choices.two{grid-template-columns:1fr 1fr}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choice > span{display:flex;align-items:center;gap:12px;min-height:54px;padding:12px 16px;border:1.5px solid var(--line);border-radius:14px;font-weight:700;font-size:15px;line-height:1.45;background:#fff;transition:border-color .15s,background .15s,color .15s}
+.choice > span::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;border:2px solid #C9C0C3;background:#fff;transition:all .15s}
+.choice input:checked + span{border-color:var(--red);background:#FFF6F7;color:var(--red-deep)}
+.choice input:checked + span::before{border-color:var(--red);background:var(--red);box-shadow:inset 0 0 0 4px #fff}
+.choice input:focus-visible + span{outline:3px solid #F3B33D;outline-offset:2px}
+.choice em{display:block;font-style:normal;font-weight:400;font-size:12.5px;color:var(--muted)}
+
+/* big attend choices */
+.attend .choice > span{min-height:68px;font-size:17px;font-weight:900}
+.attend .choice.go input:checked + span{background:var(--red);border-color:var(--red);color:#fff}
+.attend .choice.go input:checked + span em{color:rgba(255,255,255,.85)}
+.attend .choice.go input:checked + span::before{border-color:#fff;background:#fff;box-shadow:inset 0 0 0 4px var(--red)}
+
+.branch{display:none}
+.branch.open{display:block;animation:open .35s ease}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.branch.open{animation:none}}
+.branch-label{margin:26px 4px 12px;font-weight:700;font-size:14px;color:var(--red)}
+
+.err{display:none;color:var(--red);font-size:13.5px;font-weight:700;margin-top:10px}
+.q.invalid{border-color:var(--red)}
+.q.invalid .err{display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.submit-area{margin-top:26px}
+.submit-area .cta{margin:0}
+.submit-area .cta[disabled]{opacity:.75;cursor:wait}
+.spinner{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;display:none}
+.sending .spinner{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-msg{margin:14px 4px 0;font-size:14px;color:var(--muted);text-align:center}
+.form-msg.bad{color:var(--red);font-weight:700}
+.note{margin:14px 4px 0;font-size:13px;color:var(--muted);text-align:center}
+.trial{margin:0 0 18px;padding:10px 14px;border:1.5px dashed #C9A2AA;border-radius:12px;font-size:13px;color:var(--red-deep);background:#fff}
+
+/* ---------- Thanks ---------- */
+.thanks{display:none;background:#fff;border-radius:22px;padding:40px 24px 34px;text-align:center;border:1px solid var(--line);margin-top:30px}
+.thanks.show{display:block;animation:open .4s ease}
+.thanks .mark{width:84px;height:84px;margin:0 auto 18px;border-radius:50%;background:var(--red);display:grid;place-items:center}
+.thanks .mark svg{width:44px;height:44px}
+.thanks h3{font-family:var(--mincho);font-weight:800;font-size:clamp(28px,7.5vw,36px);line-height:1.3;margin:0 0 12px}
+.thanks p{margin:0 auto;max-width:26em;color:var(--muted);font-size:15px}
+.thanks .again{margin-top:24px;background:none;border:0;color:var(--red);font:inherit;font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+
+/* ---------- Footer ---------- */
+footer{padding:28px 0 calc(28px + env(safe-area-inset-bottom));font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .brand{color:var(--red);font-weight:900;letter-spacing:.1em}
+
+canvas#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+
+@media (min-width:600px){
+  .wrap{padding:0 32px}
+  .hero{padding-top:56px}
+  .q{padding:26px 28px 28px}
+}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<header class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <b>＆Y 平日イベント</b>
+      <span id="heroDate">開催日 調整中</span>
+    </div>
+    <h1 class="title"><span>南知多</span><span>ガチ釣り</span></h1>
+    <div class="badge">やっちー バースデー！</div>
+    <p class="lead">しんやさんの誕生日を、海の上で祝う1日。<br>貸切の大型船で<strong>4〜5時間の本気の海釣り</strong>。釣った魚はそのまま料理宿で捌いてもらって、みんなで乾杯します。</p>
+    <a class="cta" href="#form">参加アンケートに答える</a>
+  </div>
+  <div class="water" aria-hidden="true">
+    <div class="line"></div>
+    <svg class="bobber" viewBox="0 0 46 92">
+      <rect x="21" y="0" width="4" height="26" rx="2" fill="#1C1C1E"/>
+      <path d="M23 24c11 0 19 9 19 21H4c0-12 8-21 19-21z" fill="#C8102E"/>
+      <path d="M4 45h38c0 12-8 22-19 22S4 57 4 45z" fill="#fff" stroke="#1C1C1E" stroke-width="1.5"/>
+      <rect x="4" y="43" width="38" height="4" fill="#1C1C1E"/>
+      <rect x="21.5" y="66" width="3" height="20" rx="1.5" fill="#1C1C1E"/>
+    </svg>
+    <svg class="waves" viewBox="0 0 1200 110" preserveAspectRatio="none">
+      <path d="M0 40 C 150 10, 300 10, 450 38 S 750 70, 900 40 S 1100 12, 1200 34 V110 H0z" fill="#163C61" opacity=".55"/>
+    </svg>
+    <svg class="waves front" viewBox="0 0 1200 110" preserveAspectRatio="none">
+      <path d="M0 58 C 200 30, 360 34, 520 56 S 840 86, 1000 58 S 1140 40, 1200 52 V110 H0z" fill="#0F2D4A"/>
+    </svg>
+  </div>
+</header>
+
+<section class="sea" aria-labelledby="seaTitle">
+  <div class="wrap">
+    <h2 id="seaTitle">この日、海の上で</h2>
+    <p class="sub">昼ごろスタート。仕事のことはいったん陸に置いていきましょう。</p>
+    <ul class="moments">
+      <li class="moment">
+        <div class="ic"><svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h24l-3 6H7z"/><path d="M16 4v16M16 6l8 10h-8"/><path d="M3 29c2-1.3 4-1.3 6 0s4 1.3 6 0 4-1.3 6 0 4 1.3 6 0"/></svg></div>
+        <div>
+          <h3>貸切の大型船で、<wbr>海釣りクルーズ</h3>
+          <p>南知多の海へ出て、4〜5時間じっくり釣ります。乗船前にレクチャーがあるので、釣りが初めてでも大丈夫です。</p>
+        </div>
+      </li>
+      <li class="moment">
+        <div class="ic"><svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c4-6 10-8 16-6 3 1 5 3 7 6-2 3-4 5-7 6-6 2-12 0-16-6z"/><path d="M26 16l3-4v8z"/><circle cx="20" cy="14.5" r="1.2" fill="#fff"/></svg></div>
+        <div>
+          <h3>釣った魚で、<wbr>しんやさんの<wbr>誕生日パーティー</h3>
+          <p>料理宿の宴会場で、自分たちで釣った魚の刺身や塩焼き、豪華な海鮮料理を囲んで乾杯します。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="info" aria-labelledby="infoTitle">
+  <div class="wrap">
+    <h2 id="infoTitle">当日について</h2>
+    <dl class="facts">
+      <dt>開催日</dt><dd id="factDate">調整中<small>決まり次第、共有します</small></dd>
+      <dt>扱い</dt><dd>業務扱い、または特別休暇</dd>
+      <dt>集合</dt><dd>昼ごろ、名古屋駅 または オフィス（伏見周辺）<small>集合時間は決まり次第、共有します</small></dd>
+      <dt>移動</dt><dd>バス、または車の乗り合いで南知多（片名港など）へ<small>解散後はそのまま直帰も、有志で二次会もOK</small></dd>
+      <dt>費用</dt><dd><span class="money" id="factCost">総予算 20,000円程度</span></dd>
+    </dl>
+    <div class="free">
+      <b>参加は自由です</b>
+      都合が合わない人は「今回は見送る」で回答してください。
+    </div>
+  </div>
+</section>
+
+<section class="form-zone" id="form" aria-labelledby="formTitle">
+  <div class="wrap">
+    <div class="form-head">
+      <h2 id="formTitle">参加アンケート</h2>
+      <p>1分で終わります。</p>
+      <span class="deadline" id="deadline" hidden></span>
+    </div>
+
+    <form id="survey" novalidate>
+      <p class="trial" id="trial" hidden>お試しモードです。送信しても保存されません（CONFIG の API_URL が未設定）。</p>
+
+      <div class="q" data-q="name">
+        <label for="name">お名前<span class="req">必須</span></label>
+        <span class="hint">予定が変わったら、同じ名前でもう一度送れば上書きされます</span>
+        <input type="text" id="name" name="name" autocomplete="name" maxlength="40" placeholder="例：山田 太郎">
+        <div class="err">お名前を入力してください</div>
+      </div>
+
+      <fieldset class="q" data-q="team">
+        <legend>所属<span class="req">必須</span></legend>
+        <div class="choices two">
+          <label class="choice"><input type="radio" name="team" value="＆Y"><span>＆Y</span></label>
+          <label class="choice"><input type="radio" name="team" value="Réveal"><span>Réveal</span></label>
+        </div>
+        <div class="err">所属を選んでください</div>
+      </fieldset>
+
+      <fieldset class="q" data-q="attend">
+        <legend>参加しますか？<span class="req">必須</span></legend>
+        <div class="choices attend">
+          <label class="choice go"><input type="radio" name="attend" value="参加する"><span>参加する！</span></label>
+          <label class="choice"><input type="radio" name="attend" value="まだ迷っている"><span><span class="t">まだ迷っている<em>決まったら、もう一度回答してください</em></span></span></label>
+          <label class="choice"><input type="radio" name="attend" value="今回は見送る"><span>今回は見送る</span></label>
+        </div>
+        <div class="err">どれか1つ選んでください</div>
+      </fieldset>
+
+      <div class="branch" id="goBranch">
+        <p class="branch-label">参加する人へ、準備のための質問です</p>
+
+        <fieldset class="q" data-q="meet">
+          <legend>集合場所<span class="req">必須</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="meet" value="名古屋駅"><span>名古屋駅</span></label>
+            <label class="choice"><input type="radio" name="meet" value="オフィス（伏見周辺）"><span>オフィス（伏見周辺）</span></label>
+            <label class="choice"><input type="radio" name="meet" value="どちらでもいい"><span>どちらでもいい</span></label>
+          </div>
+          <div class="err">集合場所を選んでください</div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>車を出せますか？<span class="opt">任意</span></legend>
+          <span class="hint">移動はバスか車の乗り合いです。乗り合いになったときの参考にします</span>
+          <div class="choices two">
+            <label class="choice"><input type="radio" name="car" value="出せる"><span>出せる</span></label>
+            <label class="choice"><input type="radio" name="car" value="出せない"><span>出せない</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>釣りの経験<span class="opt">任意</span></legend>
+          <span class="hint">レクチャーの参考にします</span>
+          <div class="choices two">
+            <label class="choice"><input type="radio" name="exp" value="初めて"><span>初めて</span></label>
+            <label class="choice"><input type="radio" name="exp" value="何回かある"><span>何回かある</span></label>
+            <label class="choice"><input type="radio" name="exp" value="よく行く"><span>よく行く</span></label>
+            <label class="choice"><input type="radio" name="exp" value="ガチ勢"><span>ガチ勢</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>船酔いは？<span class="opt">任意</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="seasick" value="平気"><span>平気</span></label>
+            <label class="choice"><input type="radio" name="seasick" value="少し心配"><span>少し心配</span></label>
+            <label class="choice"><input type="radio" name="seasick" value="酔いやすい"><span><span class="t">酔いやすい<em>幹事が把握しておきます</em></span></span></label>
+          </div>
+        </fieldset>
+
+        <div class="q">
+          <label for="food">食べられないもの・アレルギー<span class="opt">任意</span></label>
+          <span class="hint">料理宿に伝えます。海鮮が苦手な人も書いてください</span>
+          <input type="text" id="food" name="food" maxlength="200" placeholder="例：エビ・カニ、生魚が苦手 など">
+        </div>
+
+        <fieldset class="q">
+          <legend>解散後の二次会<span class="opt">任意</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="after" value="行きたい"><span>行きたい</span></label>
+            <label class="choice"><input type="radio" name="after" value="当日決める"><span>当日決める</span></label>
+            <label class="choice"><input type="radio" name="after" value="直帰する"><span>直帰する</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="q">
+        <label for="question">幹事への質問・ひとこと<span class="opt">任意</span></label>
+        <textarea id="question" name="question" maxlength="400" style="min-height:80px" placeholder="気になることがあれば"></textarea>
+      </div>
+
+      <div class="branch" id="spiritBox">
+        <div class="q">
+          <label for="spirit">当日の意気込み<span class="opt">任意</span></label>
+          <span class="hint">ひとことでOK</span>
+          <textarea id="spirit" name="spirit" maxlength="300" style="min-height:90px" placeholder="例：一番の大物を釣ります！"></textarea>
+        </div>
+      </div>
+
+      <div class="hp" aria-hidden="true">
+        <label>website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="submit-area">
+        <button type="submit" class="cta" id="submitBtn"><span class="spinner"></span><span id="submitText">回答を送る</span></button>
+        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <div class="thanks" id="thanks" role="status" aria-live="polite">
+      <div class="mark"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 23l7 7 15-16"/></svg></div>
+      <h3 id="thanksTitle">回答を送りました</h3>
+      <p id="thanksBody"></p>
+      <button type="button" class="again" id="again">回答を直す</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span id="footOrg"></span>
+    <span class="brand">＆Y</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+
+  // ---- CONFIG を画面に反映 ----
+  if (CONFIG.EVENT_DATE) {
+    $('heroDate').textContent = '開催日 ' + CONFIG.EVENT_DATE;
+    $('factDate').textContent = CONFIG.EVENT_DATE;
+  }
+  if (CONFIG.COST) $('factCost').textContent = CONFIG.COST;
+  if (CONFIG.DEADLINE) { $('deadline').hidden = false; $('deadline').textContent = '回答期限：' + CONFIG.DEADLINE; }
+  var org = [];
+  if (CONFIG.ORGANIZER) org.push('幹事：' + CONFIG.ORGANIZER);
+  if (CONFIG.CONTACT) org.push('連絡先：' + CONFIG.CONTACT);
+  $('footOrg').textContent = org.join('　');
+  if (!CONFIG.API_URL) $('trial').hidden = false;
+
+  var form = $('survey');
+  var goBranch = $('goBranch');
+
+  function val(name){
+    var el = form.elements[name];
+    if (!el) return '';
+    if (el.length !== undefined && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') {
+      for (var i=0;i<el.length;i++) if (el[i].checked) return el[i].value;
+      return '';
+    }
+    return (el.value || '').trim();
+  }
+
+  // 参加を選んだら準備の質問を開く
+  form.addEventListener('change', function(e){
+    if (e.target.name === 'attend') {
+      var go = e.target.value === '参加する';
+      goBranch.classList.toggle('open', go);
+      $('spiritBox').classList.toggle('open', go);
+      if (go) $('hero').classList.remove('bite');
+    }
+    var q = e.target.closest('.q');
+    if (q) q.classList.remove('invalid');
+  });
+  $('name').addEventListener('input', function(){ this.closest('.q').classList.remove('invalid'); });
+
+  function validate(){
+    var bad = [];
+    if (!val('name')) bad.push('name');
+    if (!val('team')) bad.push('team');
+    var attend = val('attend');
+    if (!attend) bad.push('attend');
+    if (attend === '参加する' && !val('meet')) bad.push('meet');
+    document.querySelectorAll('.q[data-q]').forEach(function(q){
+      q.classList.toggle('invalid', bad.indexOf(q.dataset.q) !== -1);
+    });
+    if (bad.length) {
+      var first = document.querySelector('.q[data-q="' + bad[0] + '"]');
+      first.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'center'});
+      var f = first.querySelector('input'); if (f) f.focus({preventScroll:true});
+    }
+    return !bad.length;
+  }
+
+  function payload(){
+    var attend = val('attend');
+    var go = attend === '参加する';
+    return {
+      name: val('name'), team: val('team'), attend: attend,
+      meet: go ? val('meet') : '', car: go ? val('car') : '', exp: go ? val('exp') : '', seasick: go ? val('seasick') : '',
+      food: go ? val('food') : '', after: go ? val('after') : '', spirit: go ? val('spirit') : '',
+      question: val('question'), website: val('website')
+    };
+  }
+
+  function setSending(on){
+    var btn = $('submitBtn');
+    btn.disabled = on;
+    btn.classList.toggle('sending', on);
+    $('submitText').textContent = on ? '送信中…' : '回答を送る';
+    $('formMsg').className = 'form-msg';
+    $('formMsg').textContent = on ? '数秒かかることがあります。このままお待ちください。' : '';
+  }
+
+  function send(data){
+    if (!CONFIG.API_URL) {
+      return new Promise(function(r){ setTimeout(function(){ r({ok:true, trial:true}); }, 900); });
+    }
+    return fetch(CONFIG.API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // CORSの事前確認を避ける
+      credentials: 'omit',                                      // Googleのログイン状態を使わない
+      redirect: 'follow',
+      body: JSON.stringify(data)
+    }).then(function(res){ return res.json(); });
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!validate()) return;
+    var data = payload();
+    setSending(true);
+    send(data).then(function(res){
+      setSending(false);
+      if (!res || !res.ok) {
+        $('formMsg').className = 'form-msg bad';
+        $('formMsg').textContent = (res && res.message) || '送信できませんでした。通信状況を確認して、もう一度「回答を送る」を押してください。';
+        if (res && res.field) { var q = document.querySelector('.q[data-q="' + res.field + '"]'); if (q) q.classList.add('invalid'); }
+        return;
+      }
+      showThanks(data, res);
+    }).catch(function(){
+      setSending(false);
+      $('formMsg').className = 'form-msg bad';
+      $('formMsg').textContent = '送信できませんでした。通信状況を確認して、もう一度「回答を送る」を押してください。';
+    });
+  });
+
+  function showThanks(data, res){
+    var t = { title:'', body:'' };
+    var first = data.name.split(/[\s　]+/)[0];
+    if (data.attend === '参加する') {
+      t.title = 'アタリ！乗船確定です';
+      t.body = first + 'さん、ありがとうございます。当日は' + (data.meet === 'どちらでもいい' ? '名古屋駅かオフィス' : data.meet) + 'で会いましょう。詳しい案内は幹事から連絡します。';
+    } else if (data.attend === 'まだ迷っている') {
+      t.title = '回答を受け取りました';
+      t.body = '予定が決まったら、同じ名前でもう一度回答してください。前の回答に上書きされます。';
+    } else {
+      t.title = '回答を受け取りました';
+      t.body = 'また次のイベントで会いましょう。予定が変わったら、同じ名前でもう一度回答してください。';
+    }
+    if (res.updated) t.body += '（前の回答を上書きしました）';
+    if (res.trial) t.body += '［お試しモード：保存はされていません］';
+    $('thanksTitle').textContent = t.title;
+    $('thanksBody').textContent = t.body;
+    form.style.display = 'none';
+    $('thanks').classList.add('show');
+    $('thanks').scrollIntoView({behavior:'smooth', block:'center'});
+    if (data.attend === '参加する') { $('hero').classList.add('bite'); confetti(); }
+  }
+
+  $('again').addEventListener('click', function(){
+    $('thanks').classList.remove('show');
+    form.style.display = '';
+    $('hero').classList.remove('bite');
+    form.scrollIntoView({behavior:'smooth'});
+  });
+
+  // ---- 参加確定のときだけの紙吹雪 ----
+  function confetti(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c = document.createElement('canvas'); c.id = 'confetti'; document.body.appendChild(c);
+    var ctx = c.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = c.width = innerWidth * dpr, H = c.height = innerHeight * dpr;
+    var colors = ['#C8102E','#0F2D4A','#F3B33D','#FFFFFF','#E85A6E'];
+    var parts = [];
+    for (var i=0;i<140;i++) parts.push({
+      x: W/2 + (Math.random()-.5)*W*.3, y: H*.55,
+      vx: (Math.random()-.5)*14*dpr, vy: -(Math.random()*16+8)*dpr,
+      w: (Math.random()*6+5)*dpr, h: (Math.random()*10+6)*dpr,
+      r: Math.random()*6, vr: (Math.random()-.5)*.3, col: colors[i%colors.length]
+    });
+    var t0 = performance.now();
+    (function frame(now){
+      var el = now - t0;
+      ctx.clearRect(0,0,W,H);
+      parts.forEach(function(p){
+        p.vy += .45*dpr; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r);
+        ctx.fillStyle = p.col; ctx.globalAlpha = Math.max(0, 1 - el/2800);
+        if (p.col === '#FFFFFF') { ctx.strokeStyle = '#E7E0E2'; ctx.lineWidth = dpr; ctx.strokeRect(-p.w/2,-p.h/2,p.w,p.h); }
+        ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore();
+      });
+      if (el < 2800) requestAnimationFrame(frame); else c.remove();
+    })(t0);
+  }
+})();
+</script>
+</body>
+</html>
